@@ -1,0 +1,8 @@
+[Unit]
+Description=USB Ethernet Gadget MAC address generator
+# Activate only if there's no configuration yet.
+ConditionPathExists=!/etc/modprobe.d/g_ether.conf
+
+[Service]
+Type=oneshot
+ExecStart=/bin/echo "options g_ether host_addr=$(openssl rand -hex 6 | sed 's/\(..\)/\1:/g; s/.$//')" > /etc/modprobe.d/g_ether.conf

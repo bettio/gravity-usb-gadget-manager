@@ -1,0 +1,6 @@
+[Unit]
+Description=DNS caching server with transient USB Gadget configuration
+After=network.target
+
+[Service]
+ExecStart=/usr/sbin/dnsmasq -k -C /tmp/dnsmasq-volatile.conf

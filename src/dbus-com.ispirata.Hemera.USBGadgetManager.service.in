@@ -1,0 +1,12 @@
+[Unit]
+Description=Gravity USB Gadget Manager Daemon
+Requires=gadget-mac-address.service
+After=gadget-mac-address.service
+
+[Service]
+Type=dbus
+BusName=com.ispirata.Hemera.USBGadgetManager
+ExecStart=@FULL_INSTALL_BIN_DIR@/gravity-usb-gadget-manager
+
+[Install]
+Alias=com.ispirata.Hemera.USBGadgetManager.service
